@@ -26,46 +26,10 @@ def what_to_play(round):
 def score(round):
     play = what_to_play(round)
     opp = round[0]
-    if play == 'X':
-        play_score = 1
-    elif play == 'Y':
-        play_score = 2
-    elif play == 'Z':
-        play_score = 3
-    else:
-        bad_data(round)
-
-    if opp == 'A':
-        if play == 'X':
-            win_score = 3
-        elif play == 'Y':
-            win_score = 6
-        elif play == 'Z':
-            win_score = 0
-        else:
-            bad_data(round)
+    play_scores = {'X':1, 'Y':2, 'Z':3}
+    win_scores =  {'X':0, 'Y':3, 'Z':6}
     
-    elif opp == 'B':
-        if play == 'X':
-            win_score = 0
-        elif play == 'Y':
-            win_score = 3
-        elif play == 'Z':
-            win_score = 6
-        else:
-            bad_data(round)
-    
-    elif opp == 'C':
-        if play == 'X':
-            win_score = 6
-        elif play == 'Y':
-            win_score = 0
-        elif play == 'Z':
-            win_score = 3
-        else:
-            bad_data(round)
-    
-    return(play_score + win_score)
+    return(play_scores[play] + win_scores[round[2]])
     
 
 
