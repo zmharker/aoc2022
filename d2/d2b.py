@@ -25,7 +25,6 @@ def what_to_play(round):
 
 def score(round):
     play = what_to_play(round)
-    opp = round[0]
     play_scores = {'X':1, 'Y':2, 'Z':3}
     win_scores =  {'X':0, 'Y':3, 'Z':6}
     
