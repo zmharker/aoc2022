@@ -17,40 +17,11 @@ def what_to_play(round):
     opp = round[0]
     outcome = round[2]
 
-    if opp == 'A': # ROCK
-        if outcome == 'X':   # LOSE
-            play = 'Z'
-        elif outcome == 'Y': # DRAW
-            play = 'X'
-        elif outcome == 'Z': # WIN
-            play = 'Y'
-        else:
-            bad_data(round)
-
-    elif opp == 'B': # PAPER
-        if outcome == 'X':   # LOSE
-            play = 'X'
-        elif outcome == 'Y': # DRAW
-            play = 'Y'
-        elif outcome == 'Z': # WIN
-            play = 'Z'
-        else:
-            bad_data(round)
-
-    elif opp == 'C': # SCISSORS
-        if outcome == 'X':   # LOSE
-            play = 'Y'
-        elif outcome == 'Y': # DRAW
-            play = 'Z'
-        elif outcome == 'Z': # WIN
-            play = 'X'
-        else:
-            bad_data(round)
-    
-    else:
-        bad_data(round)
-    
-    return play
+    opp_offsets = {'A':0, 'B':1, 'C':2}
+    outcome_index = {'X': 0, 'Y': 1, 'Z': 2}
+    plays = ['Z','X','Y']
+    play_index = (outcome_index[outcome] + opp_offsets[opp]) % 3
+    return plays[play_index]
 
 def score(round):
     play = what_to_play(round)
