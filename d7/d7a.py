@@ -56,8 +56,6 @@ with open('input.txt','r') as input:
                     tree[cd] = {'files': []}
                     tree[cd]['files'].append(summarize_file(line))
 
-    print(tree, '\n')
-
 
     totals = {}
     for directory in tree:
@@ -72,7 +70,6 @@ with open('input.txt','r') as input:
                 num_files = len(v['files'])
             except:
                 num_files = 0
-            print(f'{k} {num_files} files')
 
 
     grand_total = 0
